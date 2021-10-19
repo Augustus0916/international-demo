@@ -20,8 +20,9 @@
 #      discovery:
 #        service-name: ${spring.application.name}
 #        instance-id: ${spring.application.name}:${server.port}
+#        heartbeat:
+#          enabled: true
 #
 #server:
 #  port: 8080
-#
 #
