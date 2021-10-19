@@ -1,7 +1,5 @@
 package ljh.augustus.demoswagger.configure;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -31,12 +29,6 @@ public class SwaggerConfigure {
                 .apis(RequestHandlerSelectors.any()) //这里写的是API接口所在的包位置
                 .paths(PathSelectors.any())
                 .build();
-    }
-
-    @Bean
-    UiConfiguration uiConfig() {
-        return new UiConfiguration(null, "list", "alpha", "schema",
-                UiConfiguration.Constants.DEFAULT_SUBMIT_METHODS, false, true, 60000L);
     }
 
 }
