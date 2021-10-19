@@ -1,42 +1,47 @@
-#  spring:
-#    application:
-#      name: demo-gateway
-#    profiles:
-#      active: dev
-#    datasource:
-#      url: jdbc:mysql://rm-m5e0e1v2346pf0u04mo.mysql.rds.aliyuncs.com:3306/crawler_info
-#      driver-class-name: com.mysql.cj.jdbc.Driver
-#      username: gs_db
-#      password: Aa123456
-#    jpa:
-#      hibernate:
-#        ddl-autp: create-drop
-#      show-sql: true
-#      database-platform: org.hibernate.dialect.MySQLDialect
-#    cloud:
-#      gateway:
-#        routes:
-#          - id: demo
-#            uri: http://localhost:8080/
-#            predicates:
-#              - Path=/ljh/augustus/test
-#          - id: demo-consumer
-#            uri: http://localhost:8081/
-#            predicates:
-#              - Path=/ljh/augustus/testConsumer
-#          - id: demo-producer
-#            uri: http://localhost:8082/
-#            predicates:
-#              - Path=/ljh/augustus/testProducer
-#      consul: #Consul服务注册发现配置
-#        host: localhost
-#        port: 8500
-#        discovery:
-#          service-name: ${spring.application.name}
-#          instance-id: ${spring.application.name}:${server.port}
-#          heartbeat:
-#            enabled: true
+#spring:
+#  application:
+#    name: demo-gateway
+#  profiles:
+#    active: dev
+#  datasource:
+#    url: jdbc:mysql://rm-m5e0e1v2346pf0u04mo.mysql.rds.aliyuncs.com:3306/crawler_info
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: gs_db
+#    password: Aa123456
+#  jpa:
+#    hibernate:
+#      ddl-autp: create-drop
+#    show-sql: true
+#    database-platform: org.hibernate.dialect.MySQLDialect
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: demo
+#          uri: lb://demo
+#          predicates:
+#            - Path=/demo/**
+#          filters:
+#            - StripPrefix=1
+#        - id: demo-consumer
+#          uri: lb://demo-consumer
+#          predicates:
+#            - Path=/demo-consumer/**
+#          filters:
+#            - StripPrefix=1
+#        - id: demo-producer
+#          uri: lb://demo-producer
+#          predicates:
+#            - Path=/demo-producer/**
+#          filters:
+#            - StripPrefix=1
+#    consul: #Consul服务注册发现配置
+#      host: localhost
+#      port: 8500
+#      discovery:
+#        service-name: ${spring.application.name}
+#        instance-id: ${spring.application.name}:${server.port}
+#        heartbeat:
+#          enabled: true
 #
-#  server:
-#    port: 9000
-#
+#server:
+#  port: 8000
