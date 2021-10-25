@@ -1,4 +1,4 @@
-package ljh.augustus.demo.req;
+package ljh.augustus.demoproducer.req;
 
 import lombok.Data;
 

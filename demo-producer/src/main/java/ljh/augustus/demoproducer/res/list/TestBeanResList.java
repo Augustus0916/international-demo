@@ -1,6 +1,6 @@
-package ljh.augustus.demo.res.list;
+package ljh.augustus.demoproducer.res.list;
 
-import ljh.augustus.demo.res.TestBeanRes;
+import ljh.augustus.demoproducer.res.TestBeanRes;
 import lombok.Data;
 import java.util.List;
 

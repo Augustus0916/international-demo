@@ -1,6 +1,6 @@
-package ljh.augustus.demo.repository;
+package ljh.augustus.demoproducer.repository;
 
-import ljh.augustus.demo.entity.TestBeanInfo;
+import ljh.augustus.demoproducer.entity.TestBeanInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;

@@ -1,10 +1,10 @@
-package ljh.augustus.demo.service.impl;
+package ljh.augustus.demoproducer.service.impl;
 
-import ljh.augustus.demo.entity.TestBeanInfo;
-import ljh.augustus.demo.req.TestBeanReq;
-import ljh.augustus.demo.res.TestBeanRes;
-import ljh.augustus.demo.repository.TestRepository;
-import ljh.augustus.demo.service.TestService;
+import ljh.augustus.demoproducer.entity.TestBeanInfo;
+import ljh.augustus.demoproducer.repository.TestRepository;
+import ljh.augustus.demoproducer.req.TestBeanReq;
+import ljh.augustus.demoproducer.res.TestBeanRes;
+import ljh.augustus.demoproducer.service.TestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;

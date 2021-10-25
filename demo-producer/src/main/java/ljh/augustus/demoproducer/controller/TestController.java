@@ -1,10 +1,10 @@
-package ljh.augustus.demo.controller;
+package ljh.augustus.demoproducer.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import ljh.augustus.demo.req.TestBeanReq;
-import ljh.augustus.demo.res.TestBeanRes;
-import ljh.augustus.demo.service.TestService;
+import ljh.augustus.demoproducer.req.TestBeanReq;
+import ljh.augustus.demoproducer.res.TestBeanRes;
+import ljh.augustus.demoproducer.service.TestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

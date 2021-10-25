@@ -1,4 +1,4 @@
-package ljh.augustus.demo.dto;
+package ljh.augustus.demoproducer.dto;
 
 import lombok.Data;
 

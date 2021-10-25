@@ -14,7 +14,6 @@
 	<name>international-demo</name>
 	<description>Demo project for Spring Boot</description>
 	<modules>
-		<module>demo</module>
 		<module>demo-consumer</module>
 		<module>demo-producer</module>
 		<module>demo-common</module>

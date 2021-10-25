@@ -1,4 +1,4 @@
-package ljh.augustus.demo.entity;
+package ljh.augustus.demoproducer.entity;
 
 import lombok.Getter;
 import lombok.Setter;
