@@ -1,6 +1,6 @@
 # international-demo
 
-spring+hibernate+consul+gateway+swagger+prometheus
+spring+hibernate+consul+gateway+swagger+prometheus+elasticsearch+filebeat+kibana
 
 avoid idea maven test
 
@@ -19,7 +19,7 @@ kibana: localhost:8002     start: .\kibana.bat
 filebeat: (1): .\install-service-filebeat.ps1     
           (2): .\filebeat.exe setup     
           (3): Start-Service filebeat
-          (4): .\filebeat.exe modules enable elasticsearch     在mdules.d/elasticsearch.yml文件下配置els检索日志的目录
+          (4): .\filebeat.exe modules enable elasticsearch     
           (5): .\filebeat.exe -e -c filebeat.yml
 
 

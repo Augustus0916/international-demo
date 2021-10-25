@@ -6,12 +6,6 @@
 #  cloud:
 #    gateway:
 #      routes:
-#        - id: demo
-#          uri: lb://demo
-#          predicates:
-#            - Path=/demo/**
-#          filters:
-#            - StripPrefix=1
 #        - id: demo-consumer
 #          uri: lb://demo-consumer
 #          predicates:

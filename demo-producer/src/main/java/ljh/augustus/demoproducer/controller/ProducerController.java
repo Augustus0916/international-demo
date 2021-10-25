@@ -16,7 +16,7 @@ public class ProducerController {
     @RequestMapping(value = "/ljh/augustus/testProducer", method = RequestMethod.POST,produces = "application/json;charset=UTF-8" )
     @ApiOperation("测试testProducer")
     public ProducerRes testProducer(@RequestHeader Map<String,String> headsMap, @RequestBody ProducerReq req) throws Exception {
-
+        log.info("test spring cloud + elasticsearch + filebeat + kibana");
         ProducerRes res = new ProducerRes();
         res.setProducerRes(req.getProducerReq());
         return res;
