@@ -22,6 +22,9 @@
 #        instance-id: ${spring.application.name}:${server.port}
 #        heartbeat:
 #          enabled: true
+#  kafka:
+#    consumer:
+#      group-id: demo-consumer
 #
 #management:
 #  endpoints:

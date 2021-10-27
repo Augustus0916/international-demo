@@ -7,7 +7,7 @@
     <property name="APP_NAME" value="demo"/>
 
     <!--指定日志存储目录-->
-    <property name="LOG_HOME" value="C:\\Users\\lijun\\Desktop\\tools\\log"/>
+    <property name="LOG_HOME" value="E:\\test\\logs\\spring"/>
 
     <springProperty name="APP" scope="context" source="spring.application.name"/>
     <springProperty name="ServerIP" scope="context" source="spring.cloud.client.ip-address" defaultValue="0.0.0.0"/>
