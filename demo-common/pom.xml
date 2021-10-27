@@ -20,6 +20,7 @@
 	<modules>
 		<module>demo-swagger</module>
 		<module>demo-gateway</module>
+		<module>demo-kafka</module>
 	</modules>
 	<dependencies>
 		<dependency>
