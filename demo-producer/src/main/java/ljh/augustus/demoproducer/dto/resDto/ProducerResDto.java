@@ -1,9 +1,9 @@
-package ljh.augustus.demoproducer.res;
+package ljh.augustus.demoproducer.dto.resDto;
 
 import lombok.Data;
 
 @Data
-public class TestBeanRes {
+public class ProducerResDto {
     private String cost;
     private String community;
 }

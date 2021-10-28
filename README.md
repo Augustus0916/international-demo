@@ -4,11 +4,11 @@ set logs storage path in logback-spring.xml
 set filebeat collect logs path in filebeat.yml
 two path should be same
 
-spring+hibernate+consul+gateway+swagger+prometheus+elasticsearch+filebeat+kibana
+spring+hibernate+consul+gateway+swagger+prometheus+elasticsearch+filebeat+kibana+kafka
 
 avoid idea maven test
 
-consul进入开发者模式：consul agent -dev
+consul develop mod: .\consul.exe agent -dev
 
 consul: localhost:8500
 

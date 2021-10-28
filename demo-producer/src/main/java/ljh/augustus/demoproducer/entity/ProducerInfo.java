@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity
 @Setter
 @Getter
-public class TestBeanInfo implements Serializable {
+public class ProducerInfo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

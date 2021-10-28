@@ -21,6 +21,7 @@
 		<module>demo-swagger</module>
 		<module>demo-gateway</module>
 		<module>demo-kafka</module>
+		<module>demo-log</module>
 	</modules>
 	<dependencies>
 		<dependency>

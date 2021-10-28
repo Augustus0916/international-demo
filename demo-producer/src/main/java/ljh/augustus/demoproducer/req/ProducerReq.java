@@ -4,5 +4,8 @@ import lombok.Data;
 
 @Data
 public class ProducerReq {
-    private String producerReq;
+    private String city;
+    private String type;
+    private String block;
+    private String zone;
 }
