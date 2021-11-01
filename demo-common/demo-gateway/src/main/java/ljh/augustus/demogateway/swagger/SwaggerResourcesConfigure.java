@@ -15,7 +15,7 @@ import java.util.Set;;
 
 @Component
 @Primary
-public class SwaggerResourcesConfig implements SwaggerResourcesProvider {
+public class SwaggerResourcesConfigure implements SwaggerResourcesProvider {
     /**
      * swagger3默认的url后缀
      */
@@ -32,7 +32,7 @@ public class SwaggerResourcesConfig implements SwaggerResourcesProvider {
     private String self;
 
     @Autowired
-    public SwaggerResourcesConfig(RouteLocator routeLocator) {
+    public SwaggerResourcesConfigure(RouteLocator routeLocator) {
         this.routeLocator = routeLocator;
     }
 

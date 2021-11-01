@@ -1,18 +1,17 @@
-package ljh.augustus.demoproducer;
+package ljh.augustus.demofeign;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@EnableDiscoveryClient
-@ComponentScan(basePackages = "ljh.augustus")
-public class DemoProducerApplication {
+@EnableFeignClients(value = "ljh.augustus")
+@ComponentScan(value = "ljh.augustus")
+public class DemoFeignApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoProducerApplication.class, args);
+		SpringApplication.run(DemoFeignApplication.class, args);
 	}
 
 }

@@ -27,6 +27,11 @@ public class ProducerController {
     @Autowired
     private ProducerService producerService;
 
+    @RequestMapping(value = "/ljh/augustus/testGet", method = RequestMethod.POST)
+    public  void testGet(){
+        log.info("test test");
+    }
+
     @RequestMapping(value = "/ljh/augustus/testProducer", method = RequestMethod.POST,produces = "application/json;charset=UTF-8" )
     @ApiOperation("测试testProducer")
     public ProducerResList testProducer(@RequestHeader Map<String,String> headsMap, @RequestBody ProducerReq req) throws Exception {
@@ -37,22 +42,23 @@ public class ProducerController {
         reqDto.setType(req.getType());
         reqDto.setZone(req.getZone());
 
-        ProducerResDtoList resDtoList = producerService.find(reqDto);
-
-        List<ProducerResDto> resDtos = resDtoList.getProducerResList();
-        List<ProducerRes> ress = new LinkedList<>();
-        for(ProducerResDto resDto : resDtos) {
-            ProducerRes res = new ProducerRes();
-            res.setCommunity(resDto.getCommunity());
-            res.setCost(resDto.getCost());
-            ress.add(res);
-        }
+//        ProducerResDtoList resDtoList = producerService.find(reqDto);
+//
+//        List<ProducerResDto> resDtos = resDtoList.getProducerResList();
+//        List<ProducerRes> ress = new LinkedList<>();
+//        for(ProducerResDto resDto : resDtos) {
+//            ProducerRes res = new ProducerRes();
+//            res.setCommunity(resDto.getCommunity());
+//            res.setCost(resDto.getCost());
+//            ress.add(res);
+//        }
         ProducerResList resList = new ProducerResList();
-        resList.setProducerResList(ress);
-
-        log.info("message from producer: " + "city: " + req.getCity() + " block: " + req.getBlock() + " zone: " + req.getZone() + " zone: " + req.getType());
-        kafkaTemplate.send("topic1", "city: " + req.getCity() + " block: " + req.getBlock() + " zone: " + req.getZone() + " zone: " + req.getType());
-        log.info("message from producer: " + req);
+//        resList.setProducerResList(ress);
+//
+//        log.info("message from producer: " + "city: " + req.getCity() + " block: " + req.getBlock() + " zone: " + req.getZone() + " zone: " + req.getType());
+//        kafkaTemplate.send("topic1", "city: " + req.getCity() + " block: " + req.getBlock() + " zone: " + req.getZone() + " zone: " + req.getType());
+//        log.info("message from producer: " + req);
+//
         return resList;
     }
 }
