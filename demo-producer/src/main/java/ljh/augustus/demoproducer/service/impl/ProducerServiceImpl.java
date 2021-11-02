@@ -1,10 +1,10 @@
 package ljh.augustus.demoproducer.service.impl;
 
-import ljh.augustus.demoproducer.dto.reqDto.ProducerReqDto;
-import ljh.augustus.demoproducer.dto.resDto.ProducerResDto;
-import ljh.augustus.demoproducer.dto.resDto.resDtoList.ProducerResDtoList;
-import ljh.augustus.demoproducer.entity.ProducerInfo;
-import ljh.augustus.demoproducer.repository.ProducerRepository;
+import ljh.augustus.demoproducer.dto.dtoReq.ProducerDtoReq;
+import ljh.augustus.demoproducer.dto.dtoRes.ProducerDtoRes;
+import ljh.augustus.demoproducer.dto.dtoRes.dtoResList.ProducerDtoResList;
+import ljh.augustus.demoproducer.bo.po1.ProducerPo;
+import ljh.augustus.demoproducer.dao.repository.ProducerRepository;
 import ljh.augustus.demoproducer.service.ProducerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,38 +23,38 @@ public class ProducerServiceImpl implements ProducerService {
     private ProducerRepository producerRepository;
 
     @Override
-    public ProducerResDtoList find(ProducerReqDto reqDto) throws Exception {
-        ProducerResDtoList resDtoList = new ProducerResDtoList();
-        Specification<ProducerInfo> specification = (root, query, criteriaBuilder) -> {
+    public ProducerDtoResList find(ProducerDtoReq dtoReq) throws Exception {
+        ProducerDtoResList dtoResList = new ProducerDtoResList();
+        Specification<ProducerPo> specification = (root, query, criteriaBuilder) -> {
             List<Predicate> predicateList = new ArrayList<>();
-            if (reqDto.getCity() != null) {
-                predicateList.add(criteriaBuilder.equal(root.get("city"), reqDto.getCity()));
+            if (dtoReq.getCity() != null) {
+                predicateList.add(criteriaBuilder.equal(root.get("city"), dtoReq.getCity()));
             }
-            if (reqDto.getBlock() != null) {
-                predicateList.add(criteriaBuilder.equal(root.get("block"), reqDto.getBlock()));
+            if (dtoReq.getBlock() != null) {
+                predicateList.add(criteriaBuilder.equal(root.get("block"), dtoReq.getBlock()));
             }
-            if (reqDto.getType() != null) {
-                predicateList.add(criteriaBuilder.equal(root.get("type"), reqDto.getType()));
+            if (dtoReq.getType() != null) {
+                predicateList.add(criteriaBuilder.equal(root.get("type"), dtoReq.getType()));
             }
-            if (reqDto.getZone() != null) {
-                predicateList.add(criteriaBuilder.equal(root.get("zone"), reqDto.getZone()));
+            if (dtoReq.getZone() != null) {
+                predicateList.add(criteriaBuilder.equal(root.get("zone"), dtoReq.getZone()));
             }
             Predicate[] p = new Predicate[predicateList.size()];
             return criteriaBuilder.and(predicateList.toArray(p));
         };
 
-        List<ProducerInfo> list = producerRepository.findAll(specification);
+        List<ProducerPo> list = producerRepository.findAll(specification);
 
-        List<ProducerResDto> resDtos = new LinkedList<>();
-        for(ProducerInfo info : list) {
-            ProducerResDto resDto = new ProducerResDto();
-            resDto.setCommunity(info.getCommunity());
-            resDto.setCost(info.getCost());
-            resDtos.add(resDto);
+        List<ProducerDtoRes> dtoRess = new LinkedList<>();
+        for(ProducerPo info : list) {
+            ProducerDtoRes dtoRes = new ProducerDtoRes();
+            dtoRes.setCommunity(info.getCommunity());
+            dtoRes.setCost(info.getCost());
+            dtoRess.add(dtoRes);
         }
-        resDtoList.setProducerResList(resDtos);
+        dtoResList.setProducerDtoResList(dtoRess);
 
-        return resDtoList;
+        return dtoResList;
     }
 
 }

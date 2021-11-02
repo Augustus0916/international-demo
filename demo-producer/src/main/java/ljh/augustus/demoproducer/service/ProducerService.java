@@ -1,8 +1,8 @@
 package ljh.augustus.demoproducer.service;
 
-import ljh.augustus.demoproducer.dto.reqDto.ProducerReqDto;
-import ljh.augustus.demoproducer.dto.resDto.resDtoList.ProducerResDtoList;
+import ljh.augustus.demoproducer.dto.dtoReq.ProducerDtoReq;
+import ljh.augustus.demoproducer.dto.dtoRes.dtoResList.ProducerDtoResList;
 
 public interface ProducerService {
-    ProducerResDtoList find(ProducerReqDto reqDto) throws Exception;
+    ProducerDtoResList find(ProducerDtoReq dtoReq) throws Exception;
 }

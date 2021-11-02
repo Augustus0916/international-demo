@@ -1,7 +1,7 @@
 package ljh.augustus.democonsumer.service.impl;
 
-import ljh.augustus.democonsumer.dto.reqDto.ConsumerReqDto;
-import ljh.augustus.democonsumer.dto.resDto.ConsumerResDto;
+import ljh.augustus.democonsumer.dto.dtoReq.ConsumerDtoReq;
+import ljh.augustus.democonsumer.dto.dtoRes.ConsumerDtoRes;
 import ljh.augustus.democonsumer.service.ConsumerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 public class ConsumerServiceImpl implements ConsumerService {
 
     @Override
-    public ConsumerResDto consumer(ConsumerReqDto reqDto) throws Exception{
-        ConsumerResDto resDto = new ConsumerResDto();
-        resDto.setConsumerResDto("in consumer service");
-        return resDto;
+    public ConsumerDtoRes consumer(ConsumerDtoReq dtoReq) throws Exception{
+        ConsumerDtoRes dtoRes = new ConsumerDtoRes();
+        dtoRes.setConsumerDtoRes("in consumer service");
+        return dtoRes;
     }
 }

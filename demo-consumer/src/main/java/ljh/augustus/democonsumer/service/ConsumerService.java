@@ -1,8 +1,8 @@
 package ljh.augustus.democonsumer.service;
 
-import ljh.augustus.democonsumer.dto.reqDto.ConsumerReqDto;
-import ljh.augustus.democonsumer.dto.resDto.ConsumerResDto;
+import ljh.augustus.democonsumer.dto.dtoReq.ConsumerDtoReq;
+import ljh.augustus.democonsumer.dto.dtoRes.ConsumerDtoRes;
 
 public interface ConsumerService {
-    ConsumerResDto consumer(ConsumerReqDto req) throws Exception;
+    ConsumerDtoRes consumer(ConsumerDtoReq req) throws Exception;
 }

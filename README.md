@@ -4,7 +4,7 @@ set logs storage path in logback-spring.xml
 set filebeat collect logs path in filebeat.yml
 two path should be same
 
-spring + hibernate + consul + gateway + swagger + prometheus + elasticsearch + filebeat + kibana + kafka
+spring + hibernate + consul + gateway + swagger + prometheus + elasticsearch + filebeat + kibana + kafka + openFeign
 
 avoid idea maven test
 
@@ -27,6 +27,9 @@ filebeat: (1): .\install-service-filebeat.ps1
 zookeeper: localhost:2181     .\zookeeper-server-start .\config\zookeeper.properties
 
 kafka: .\kafka-server-start .\config\server.properties
+
+front-end (vo.req) --> controller (dto) --> service (bo.po) --> dao
+front-end (vo.res) <-- controller (dto) <-- service (bo.po) <-- dao
 
 
 

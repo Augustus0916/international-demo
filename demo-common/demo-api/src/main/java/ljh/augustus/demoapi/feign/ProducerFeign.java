@@ -1,7 +1,7 @@
 package ljh.augustus.demoapi.feign;
 
-import ljh.augustus.demoapi.req.ProducerReq;
-import ljh.augustus.demoapi.res.resList.ProducerResList;
+import ljh.augustus.demoapi.to.toReq.ProducerToReq;
+import ljh.augustus.demoapi.to.toRes.toResList.ProducerToResList;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +15,6 @@ import java.util.Map;
 public interface ProducerFeign {
 
     @RequestMapping(value = "/ljh/augustus/testProducer", method = RequestMethod.POST,produces = "application/json;charset=UTF-8" )
-    ProducerResList testProducer(@RequestHeader Map<String, String> headsMap, @RequestBody ProducerReq req) throws Exception;
+    ProducerToResList testProducer(@RequestHeader Map<String, String> headsMap, @RequestBody ProducerToReq req) throws Exception;
 
 }
