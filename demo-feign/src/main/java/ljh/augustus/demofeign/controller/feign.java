@@ -22,6 +22,7 @@ public class feign {
     public TestFeignVoRes testFeign(@RequestHeader Map<String,String> headsMap, @RequestBody TestFeignVoReq voReq) throws Exception {
 
         ProducerToReq producerToReq = new ProducerToReq();
+        log.info(voReq.getTestFeignVoReq());
         if(voReq.getTestFeignVoReq().equals("find")) {
             producerToReq.setBlock("朝阳");
             producerToReq.setCity("北京");
@@ -38,12 +39,12 @@ public class feign {
 
         ProducerToResList producerToResList = producerFeign.testProducer(heads, producerToReq);
         log.info(producerToResList.toString());
-        TestFeignVoRes voRes = new TestFeignVoRes();
 
-        if(producerToResList != null)
+        TestFeignVoRes voRes = new TestFeignVoRes();
+        if(producerToResList.getProducerToResList() != null)
             voRes.setTestFeignVoRes("success");
         else
-            voRes.setTestFeignVoRes("success");
+            voRes.setTestFeignVoRes("fail");
         return voRes;
     }
 

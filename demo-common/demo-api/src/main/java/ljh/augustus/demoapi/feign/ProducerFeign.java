@@ -15,6 +15,5 @@ import java.util.Map;
 public interface ProducerFeign {
 
     @RequestMapping(value = "/ljh/augustus/testProducer", method = RequestMethod.POST,produces = "application/json;charset=UTF-8" )
-    ProducerToResList testProducer(@RequestHeader Map<String, String> headsMap, @RequestBody ProducerToReq req) throws Exception;
-
+    ProducerToResList testProducer(@RequestHeader Map<String, String> headsMap, @RequestBody ProducerToReq toReq) throws Exception;
 }

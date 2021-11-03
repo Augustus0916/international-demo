@@ -2,12 +2,12 @@ package ljh.augustus.demoproducer.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import ljh.augustus.demoapi.to.toReq.ProducerToReq;
+import ljh.augustus.demoapi.to.toRes.ProducerToRes;
+import ljh.augustus.demoapi.to.toRes.toResList.ProducerToResList;
 import ljh.augustus.demoproducer.dto.dtoReq.ProducerDtoReq;
 import ljh.augustus.demoproducer.dto.dtoRes.ProducerDtoRes;
 import ljh.augustus.demoproducer.dto.dtoRes.dtoResList.ProducerDtoResList;
-import ljh.augustus.demoproducer.vo.voReq.ProducerVoReq;
-import ljh.augustus.demoproducer.vo.voRes.ProducerVoRes;
-import ljh.augustus.demoproducer.vo.voRes.voResList.ProducerVoResList;
 import ljh.augustus.demoproducer.service.ProducerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,37 +28,32 @@ public class ProducerController {
     @Autowired
     private ProducerService producerService;
 
-    @RequestMapping(value = "/ljh/augustus/testGet", method = RequestMethod.POST)
-    public  void testGet(){
-        log.info("test test");
-    }
-
     @RequestMapping(value = "/ljh/augustus/testProducer", method = RequestMethod.POST,produces = "application/json;charset=UTF-8" )
     @ApiOperation("测试testProducer")
-    public ProducerVoResList testProducer(@RequestHeader Map<String,String> headsMap, @RequestBody ProducerVoReq voReq) throws Exception {
+    public ProducerToResList testProducer(@RequestHeader Map<String,String> headsMap, @RequestBody ProducerToReq toReq) throws Exception {
 
         ProducerDtoReq reqDto = new ProducerDtoReq();
-        reqDto.setCity(voReq.getCity());
-        reqDto.setBlock(voReq.getBlock());
-        reqDto.setType(voReq.getType());
-        reqDto.setZone(voReq.getZone());
+        reqDto.setCity(toReq.getCity());
+        reqDto.setBlock(toReq.getBlock());
+        reqDto.setType(toReq.getType());
+        reqDto.setZone(toReq.getZone());
 
         ProducerDtoResList dtoResList = producerService.find(reqDto);
 
         List<ProducerDtoRes> dtoRess = dtoResList.getProducerDtoResList();
-        List<ProducerVoRes> voRess = new LinkedList<>();
+        List<ProducerToRes> toRess = new LinkedList<>();
         for(ProducerDtoRes dtoRes : dtoRess) {
-            ProducerVoRes voRes = new ProducerVoRes();
-            voRes.setCommunity(dtoRes.getCommunity());
-            voRes.setCost(dtoRes.getCost());
-            voRess.add(voRes);
+            ProducerToRes toRes = new ProducerToRes();
+            toRes.setCommunity(dtoRes.getCommunity());
+            toRes.setCost(dtoRes.getCost());
+            toRess.add(toRes);
         }
-        ProducerVoResList resList = new ProducerVoResList();
-        resList.setProducerVoResList(voRess);
+        ProducerToResList toResList = new ProducerToResList();
+        toResList.setProducerToResList(toRess);
 
-        log.info("message from producer: " + "city: " + voReq.getCity() + " block: " + voReq.getBlock() + " zone: " + voReq.getZone() + " zone: " + voReq.getType());
-        kafkaTemplate.send("topic1", "city: " + voReq.getCity() + " block: " + voReq.getBlock() + " zone: " + voReq.getZone() + " zone: " + voReq.getType());
-
-        return resList;
+        log.info("message from producer: " + "city: " + toReq.getCity() + " block: " + toReq.getBlock() + " zone: " + toReq.getZone() + " zone: " + toReq.getType());
+        kafkaTemplate.send("topic1", "city: " + toReq.getCity() + " block: " + toReq.getBlock() + " zone: " + toReq.getZone() + " zone: " + toReq.getType());
+        log.info(toResList.toString());
+        return toResList;
     }
 }
