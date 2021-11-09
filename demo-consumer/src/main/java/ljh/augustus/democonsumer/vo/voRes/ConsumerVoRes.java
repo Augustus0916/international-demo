@@ -4,5 +4,6 @@ import lombok.Data;
 
 @Data
 public class ConsumerVoRes {
-    private String consumerVoRes;
+    private String cost;
+    private String community;
 }

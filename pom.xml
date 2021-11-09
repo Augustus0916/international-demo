@@ -17,6 +17,7 @@
 		<module>demo-consumer</module>
 		<module>demo-producer</module>
 		<module>demo-common</module>
+		<module>demo-gateway</module>
 	</modules>
 	<packaging>pom</packaging>
 	<properties>

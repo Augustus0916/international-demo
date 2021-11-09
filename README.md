@@ -31,6 +31,13 @@ kafka: .\kafka-server-start .\config\server.properties
 front-end (vo.req) --> controller (dto) --> service (bo.po) --> dao
 front-end (vo.res) <-- controller (dto) <-- service (bo.po) <-- dao
 
+intercept all request exclude from gateway!!!
+add filter in gateway which will add a header {"session":"UUID"} 
+add an interceptor for global to stop all requests which do not contain header {"session":"UUID"}
+when filter finish adding header, filter will use kafka to send the UUID to feign and interceptor
+in the feign and interceptor, there is a kafka consumer to listen the message 
+feign will add the header which comes from kafka consumer, and then the interceptor will not intercept the request from feign.
+
 
 
 

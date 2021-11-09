@@ -19,10 +19,11 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>demo-swagger</module>
-		<module>demo-gateway</module>
 		<module>demo-kafka</module>
 		<module>demo-log</module>
 		<module>demo-api</module>
+		<module>demo-security</module>
+		<module>demo-interceptor</module>
 	</modules>
 	<dependencies>
 		<dependency>

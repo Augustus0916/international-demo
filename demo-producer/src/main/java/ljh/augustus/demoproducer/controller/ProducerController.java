@@ -1,7 +1,6 @@
 package ljh.augustus.demoproducer.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import com.google.gson.Gson;
 import ljh.augustus.demoapi.to.toReq.ProducerToReq;
 import ljh.augustus.demoapi.to.toRes.ProducerToRes;
 import ljh.augustus.demoapi.to.toRes.toResList.ProducerToResList;
@@ -20,7 +19,6 @@ import java.util.Map;
 
 @RestController
 @Slf4j
-@Api("测试生产控制层")
 public class ProducerController {
 
     @Autowired
@@ -29,8 +27,8 @@ public class ProducerController {
     private ProducerService producerService;
 
     @RequestMapping(value = "/ljh/augustus/testProducer", method = RequestMethod.POST,produces = "application/json;charset=UTF-8" )
-    @ApiOperation("测试testProducer")
     public ProducerToResList testProducer(@RequestHeader Map<String,String> headsMap, @RequestBody ProducerToReq toReq) throws Exception {
+        log.info("here");
 
         ProducerDtoReq reqDto = new ProducerDtoReq();
         reqDto.setCity(toReq.getCity());
@@ -51,9 +49,9 @@ public class ProducerController {
         ProducerToResList toResList = new ProducerToResList();
         toResList.setProducerToResList(toRess);
 
-        log.info("message from producer: " + "city: " + toReq.getCity() + " block: " + toReq.getBlock() + " zone: " + toReq.getZone() + " zone: " + toReq.getType());
-        kafkaTemplate.send("topic1", "city: " + toReq.getCity() + " block: " + toReq.getBlock() + " zone: " + toReq.getZone() + " zone: " + toReq.getType());
-        log.info(toResList.toString());
+        String message = new Gson().toJson(toReq);
+        log.info("message from producer: " + message);
+        kafkaTemplate.send("topic1", message);
         return toResList;
     }
 }

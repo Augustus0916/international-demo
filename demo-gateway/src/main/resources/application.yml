@@ -6,12 +6,6 @@
 #  cloud:
 #    gateway:
 #      routes:
-#        - id: demo-producer
-#          uri: lb://demo-producer
-#          predicates:
-#            - Path=/demo-producer/**
-#          filters:
-#            - StripPrefix=1
 #        - id: demo-feign
 #          uri: lb://demo-feign
 #          predicates:

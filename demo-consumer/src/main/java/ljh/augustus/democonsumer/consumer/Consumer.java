@@ -1,5 +1,6 @@
 package ljh.augustus.democonsumer.consumer;
 
+import com.google.gson.Gson;
 import ljh.augustus.democonsumer.dto.dtoReq.ConsumerDtoReq;
 import ljh.augustus.democonsumer.dto.dtoRes.ConsumerDtoRes;
 import ljh.augustus.democonsumer.vo.voReq.ConsumerVoReq;
@@ -21,15 +22,13 @@ public class Consumer {
     @KafkaListener(topics = {"topic1"})
     public ConsumerVoRes message(ConsumerRecord<?, ?> record) throws Exception{
 
-        log.info("message from consumer: " + record.value().toString());
-        ConsumerVoReq voReq = new ConsumerVoReq();
-        voReq.setConsumerVoReq(record.value().toString());
+        log.info("message from consumer: " + record.value());
+        ConsumerVoReq voReq = new Gson().fromJson(record.value().toString(), ConsumerVoReq.class);
+        log.info("voReq: " + voReq.toString());
         ConsumerDtoReq reqDto = new ConsumerDtoReq();
-        reqDto.setConsumerDtoReq(voReq.getConsumerVoReq());
         ConsumerDtoRes resDto = consumerService.consumer(reqDto);
         ConsumerVoRes voRes = new ConsumerVoRes();
-        voRes.setConsumerVoRes(resDto.getConsumerDtoRes());
-        log.info("res: " + voRes.getConsumerVoRes());
+        resDto.setConsumerDtoRes(voRes.getCommunity());
         return voRes;
     }
 }

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>ljh.augustus</groupId>
-		<artifactId>demo-common</artifactId>
+		<artifactId>international-demo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
@@ -26,6 +26,12 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-gateway</artifactId>
 			<version>3.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>ljh.augustus</groupId>
+			<artifactId>demo-kafka</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 
