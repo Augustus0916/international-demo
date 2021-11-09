@@ -19,12 +19,22 @@
 	<dependencies>
 		<dependency>
 			<groupId>ljh.augustus</groupId>
-			<artifactId>demo-swagger</artifactId>
+			<artifactId>demo-interceptor</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>ljh.augustus</groupId>
+			<artifactId>demo-api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>ljh.augustus</groupId>
 			<artifactId>demo-kafka</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>ljh.augustus</groupId>
+			<artifactId>demo-log</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>

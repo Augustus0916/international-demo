@@ -19,15 +19,17 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>demo-swagger</module>
-		<module>demo-gateway</module>
 		<module>demo-kafka</module>
+		<module>demo-log</module>
+		<module>demo-api</module>
+		<module>demo-security</module>
+		<module>demo-interceptor</module>
 	</modules>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
